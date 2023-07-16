@@ -57,11 +57,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/WebGLRepo.loader.js";
+      var loaderUrl = buildUrl + "/GZIP.loader.js";
       var config = {
-        dataUrl: buildUrl + "/WebGLRepo.data",
-        frameworkUrl: buildUrl + "/WebGLRepo.framework.js",
-        codeUrl: buildUrl + "/WebGLRepo.wasm",
+        dataUrl: buildUrl + "/GZIP.data.unityweb",
+        frameworkUrl: buildUrl + "/GZIP.framework.js.unityweb",
+        codeUrl: buildUrl + "/GZIP.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Boom",
         productName: "Merge Battle Arena",
@@ -98,7 +98,7 @@
         canvas.style.height = "1080px";
       }
 
-      canvas.style.background = "url('" + buildUrl + "/WebGLRepo.jpg') center / cover";
+      canvas.style.background = "url('" + buildUrl + "/GZIP.jpg.unityweb') center / cover";
       loadingBar.style.display = "block";
 
       var script = document.createElement("script");
