@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            // Parse the URL parameter
+            var urlParams = new URLSearchParams(window.location.search);
+            var id = urlParams.get('id'); // Assuming your parameter is named 'id'
+            
+            if (id) {
+                // Construct the deep link URL with the parameter
+                var deepLinkUrl = "unitydl://mylink?" + id;
+                // Redirect to the deep link
+                window.location.href = deepLinkUrl;
+            } else {
+                // Optional: Redirect to a fallback URL if the 'id' parameter is missing
+                window.location.href = "https://yourwebsite.com/fallback-page";
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>
