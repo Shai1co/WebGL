@@ -1,95 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>TalesCraft</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
-			color: white; /* Set text color to white */
-        }
-        .background-image {
-            /* Use the feature graphic as a background */
-            background: url('https://shai1co.github.io/WebGL/Redirect/feature.png') no-repeat center center;
-            background-size: cover; /* Cover the entire page */
-            position: fixed; /* Fixed position so it covers the whole page */
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Place it behind the content */
-        }
-		.overlay { /* Semi-transparent overlay */
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Adjust the alpha for more or less transparency */
-            z-index: 0; /* Above the background, below the content */
-        }
-        .content {
-            text-align: center; /* Center the content */
-            position: relative; /* Relative positioning for overlaying */
-            z-index: 1; /* Ensure the content is above the background */
-        }
-        .app-store-buttons {
-            display: none; /* Initially hide the store buttons */
-            margin-top: 20px; /* Space between text and buttons */
-        }
-		.app-store-buttons a {
-            text-decoration: none;
-            display: inline-block;
-            margin: 10px;
-        }
-        .app-store-buttons img {
-            height: 50px;
-            width: auto;
-        }
-    </style>
-</head>
-<body>
-    <div class="background-image"></div> <!-- Background image layer -->
-	<div class="overlay"></div> <!-- Semi-transparent overlay -->
-	
-    <!-- Content overlay -->
-    <div class="content">
-        <h1>TalesCraft</h1>
-        <p>If the app didn't open, please download or open it from the store:</p>
-        
-         <!-- Store Buttons -->
-		<div id="store-buttons" class="app-store-buttons">
-			<a href="https://play.google.com/store/apps/details?id=com.Boom.StoryTeller" target="_blank">
-				<img src="https://shai1co.github.io/WebGL/Redirect/android.png" alt="Get it on Google Play">
-			</a>
-			<a href="https://apps.apple.com/us/app/talescraft-ai/id6477337195/" target="_blank">
-				<img src="https://shai1co.github.io/WebGL/Redirect/ios.png" alt="Download on the App Store">
-			</a>
-		</div>
-    </div>
-
+    <title>Redirecting...</title>
     <script type="text/javascript">
-        // Function to show the store buttons
-        function showStoreButtons() {
-            document.getElementById('store-buttons').style.display = 'block';
-        }
-
         window.onload = function() {
             // Parse the URL parameter
             var urlParams = new URLSearchParams(window.location.search);
             var id = urlParams.get('id'); // Assuming your parameter is named 'id'
-
+            
             if (id) {
                 // Construct the deep link URL with the parameter
                 var deepLinkUrl = "unitydl://mylink?" + id;
+                
                 // Attempt to redirect to the deep link
                 window.location.href = deepLinkUrl;
 
-                // After a delay, show the store buttons, assuming the app didn't open
-                setTimeout(showStoreButtons, 2000); // 2 seconds delay
+                // Wait for 2 seconds before redirecting to the store page
+                setTimeout(function() {
+                    // Replace the URL below with the actual store link to your app
+                    // For Android on Google Play: https://play.google.com/store/apps/details?id=YOUR.APP.ID
+                    // For iOS on App Store: https://apps.apple.com/app/idYOUR_APP_ID
+                    window.location.href = "https://play.google.com/store/apps/details?id=com.Boom.StoryTeller";
+                }, 4000); // Adjust the delay as needed
             } else {
-                // If no 'id' parameter is present, show the store buttons immediately
-                showStoreButtons();
+                // Optional: Redirect to a fallback URL if the 'id' parameter is missing
+                window.location.href = "https://play.google.com/store/apps/details?id=com.Boom.StoryTeller";
             }
         }
     </script>
+</head>
+<body>
+    <p>Redirecting...</p>
 </body>
 </html>
