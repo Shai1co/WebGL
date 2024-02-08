@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Redirecting...</title>
+    <title>App Redirect</title>
+</head>
+<body>
     <script type="text/javascript">
+        // Function to hide the store buttons
+        function hideStoreButtons() {
+            document.getElementById("store-buttons").style.display = "none";
+        }
+
+        // Function to show the store buttons
+        function showStoreButtons() {
+            document.getElementById("store-buttons").style.display = "block";
+        }
+
         window.onload = function() {
-            // Parse the URL parameter
+            // Initially, hide the store buttons
+            hideStoreButtons();
+
+            // Check for the id parameter in the URL
             var urlParams = new URLSearchParams(window.location.search);
-            var id = urlParams.get('id'); // Assuming your parameter is named 'id'
-            
+            var id = urlParams.get('id');
             if (id) {
-                // Construct the deep link URL with the parameter
                 var deepLinkUrl = "unitydl://mylink?" + id;
-                
-                // Attempt to redirect to the deep link
                 window.location.href = deepLinkUrl;
 
-                // Wait for 2 seconds before redirecting to the store page
-                setTimeout(function() {
-                    // Replace the URL below with the actual store link to your app
-                    // For Android on Google Play: https://play.google.com/store/apps/details?id=YOUR.APP.ID
-                    // For iOS on App Store: https://apps.apple.com/app/idYOUR_APP_ID
-                    window.location.href = "https://play.google.com/store/apps/details?id=com.Boom.StoryTeller";
-                }, 2000); // Adjust the delay as needed
+                // Show the buttons after a delay, assuming the app didn't open
+                setTimeout(showStoreButtons, 2000);
             } else {
-                // Optional: Redirect to a fallback URL if the 'id' parameter is missing
-                window.location.href = "https://play.google.com/store/apps/details?id=com.Boom.StoryTeller";
+                // Directly show the buttons if no id is present
+                showStoreButtons();
             }
         }
     </script>
-</head>
-<body>
-    <p>Redirecting...</p>
+
+    <div id="store-buttons" style="display:none;">
+        <p>If the app didn't open, please download or open it from the store:</p>
+        <a href="https://play.google.com/store/apps/details?id=com.Boom.StoryTeller" target="_blank">Open in Google Play</a><br>
+        <a href="https://apps.apple.com/app/idYOUR.IOS.APP.ID" target="_blank">Open in App Store</a>
+    </div>
 </body>
 </html>
