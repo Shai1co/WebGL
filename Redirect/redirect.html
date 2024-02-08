@@ -5,40 +5,25 @@
 </head>
 <body>
     <script type="text/javascript">
-        // Function to hide the store buttons
-        function hideStoreButtons() {
-            document.getElementById("store-buttons").style.display = "none";
-        }
-
         // Function to show the store buttons
         function showStoreButtons() {
             document.getElementById("store-buttons").style.display = "block";
         }
 
         window.onload = function() {
-            // Initially, hide the store buttons
-            hideStoreButtons();
-
-            // Check for the id parameter in the URL
-            var urlParams = new URLSearchParams(window.location.search);
-            var id = urlParams.get('id');
-            if (id) {
-                var deepLinkUrl = "unitydl://mylink?" + id;
-                window.location.href = deepLinkUrl;
-
-                // Show the buttons after a delay, assuming the app didn't open
-                setTimeout(showStoreButtons, 2000);
-            } else {
-                // Directly show the buttons if no id is present
-                showStoreButtons();
-            }
+            // Delay showing the store buttons to give time for the app to open
+            setTimeout(showStoreButtons, 2000); // Adjust as needed
         }
     </script>
 
-    <div id="store-buttons" style="display:none;">
+    <div id="store-buttons" style="display:none; text-align:center;">
         <p>If the app didn't open, please download or open it from the store:</p>
-        <a href="https://play.google.com/store/apps/details?id=com.Boom.StoryTeller" target="_blank">Open in Google Play</a><br>
-        <a href="https://apps.apple.com/app/idYOUR.IOS.APP.ID" target="_blank">Open in App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.Boom.StoryTeller" target="_blank">
+            <img src="https://shai1co.github.io/WebGL/Redirect/android.png" alt="Get it on Google Play" style="height:60px;">
+        </a>
+        <a href="https://apps.apple.com/app/idYOUR.IOS.APP.ID" target="_blank">
+            <img src="https://shai1co.github.io/WebGL/Redirect/ios.png" alt="Download on the App Store" style="height:60px;">
+        </a>
     </div>
 </body>
 </html>
