@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>App Redirect</title>
+    <title>TalesCraft Redirect</title>
     <style>
-        /* Add CSS for consistent styling */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -14,8 +13,12 @@
             max-width: 100%; /* Ensure the image is not wider than the screen */
             height: auto; /* Maintain aspect ratio */
         }
+        .app-store-buttons {
+            display: none; /* Initially hide the store buttons */
+            margin-top: 20px; /* Space between the feature graphic and buttons */
+        }
         .app-store-buttons a {
-            text-decoration: none; /* Remove the underline */
+            text-decoration: none; /* Remove the underline from the links */
             display: inline-block; /* Align buttons side by side */
             margin: 10px; /* Adds some space around the buttons */
         }
@@ -30,19 +33,40 @@
     <img src="https://shai1co.github.io/WebGL/Redirect/feature.png" alt="App Feature Graphic" class="feature-graphic">
 
     <!-- Store Buttons -->
-    <div class="app-store-buttons">
+    <div id="store-buttons" class="app-store-buttons">
         <p>If the app didn't open, please download or open it from the store:</p>
         <a href="https://play.google.com/store/apps/details?id=com.Boom.StoryTeller" target="_blank">
             <img src="https://shai1co.github.io/WebGL/Redirect/android.png" alt="Get it on Google Play">
         </a>
-        <a href="https://apps.apple.com/app/idYOUR.IOS.APP.ID" target="_blank">
+        <a href="https://apps.apple.com/" target="_blank">
             <img src="https://shai1co.github.io/WebGL/Redirect/ios.png" alt="Download on the App Store">
         </a>
     </div>
 
     <script type="text/javascript">
-        // JavaScript for delayed display of store buttons (if needed)
-        // Add your existing JavaScript here if you're using the delay functionality
+        // Function to show the store buttons
+        function showStoreButtons() {
+            document.getElementById('store-buttons').style.display = 'block';
+        }
+
+        window.onload = function() {
+            // Parse the URL parameter
+            var urlParams = new URLSearchParams(window.location.search);
+            var id = urlParams.get('id'); // Assuming your parameter is named 'id'
+
+            if (id) {
+                // Construct the deep link URL with the parameter
+                var deepLinkUrl = "unitydl://mylink?" + id;
+                // Attempt to redirect to the deep link
+                window.location.href = deepLinkUrl;
+
+                // After a delay, show the store buttons, assuming the app didn't open
+                setTimeout(showStoreButtons, 2000); // 2 seconds delay
+            } else {
+                // If no 'id' parameter is present, show the store buttons immediately
+                showStoreButtons();
+            }
+        }
     </script>
 </body>
 </html>
