@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>TalesCraft Redirect</title>
+    <title>App Redirect</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        body, html {
             margin: 0;
             padding: 0;
-            text-align: center; /* Center align the content */
+            height: 100%;
+            font-family: Arial, sans-serif;
         }
-        .feature-graphic {
-            max-width: 100%; /* Ensure the image is not wider than the screen */
-            height: auto; /* Maintain aspect ratio */
+        .background-image {
+            /* Use the feature graphic as a background */
+            background: url('https://shai1co.github.io/WebGL/Redirect/feature.png') no-repeat center center;
+            background-size: cover; /* Cover the entire page */
+            position: fixed; /* Fixed position so it covers the whole page */
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Place it behind the content */
+        }
+        .content {
+            text-align: center; /* Center the content */
+            position: relative; /* Relative positioning for overlaying */
+            z-index: 1; /* Ensure the content is above the background */
         }
         .app-store-buttons {
             display: none; /* Initially hide the store buttons */
-            margin-top: 20px; /* Space between the feature graphic and buttons */
+            margin-top: 20px; /* Space between text and buttons */
         }
         .app-store-buttons a {
             text-decoration: none; /* Remove the underline from the links */
@@ -29,18 +39,23 @@
     </style>
 </head>
 <body>
-    <!-- Feature Graphic -->
-    <img src="https://shai1co.github.io/WebGL/Redirect/feature.png" alt="App Feature Graphic" class="feature-graphic">
+    <div class="background-image"></div> <!-- Background image layer -->
 
-    <!-- Store Buttons -->
-    <div id="store-buttons" class="app-store-buttons">
+    <!-- Content overlay -->
+    <div class="content">
+        <h1>TalesCraft</h1>
         <p>If the app didn't open, please download or open it from the store:</p>
-        <a href="https://play.google.com/store/apps/details?id=com.Boom.StoryTeller" target="_blank">
-            <img src="https://shai1co.github.io/WebGL/Redirect/android.png" alt="Get it on Google Play">
-        </a>
-        <a href="https://apps.apple.com/" target="_blank">
-            <img src="https://shai1co.github.io/WebGL/Redirect/ios.png" alt="Download on the App Store">
-        </a>
+        
+         <!-- Store Buttons -->
+		<div id="store-buttons" class="app-store-buttons">
+			<p>If the app didn't open, please download or open it from the store:</p>
+			<a href="https://play.google.com/store/apps/details?id=com.Boom.StoryTeller" target="_blank">
+				<img src="https://shai1co.github.io/WebGL/Redirect/android.png" alt="Get it on Google Play">
+			</a>
+			<a href="https://apps.apple.com/" target="_blank">
+				<img src="https://shai1co.github.io/WebGL/Redirect/ios.png" alt="Download on the App Store">
+			</a>
+		</div>
     </div>
 
     <script type="text/javascript">
