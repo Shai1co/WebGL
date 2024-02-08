@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>App Redirect</title>
+    <title>TalesCraft</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             font-family: Arial, sans-serif;
+			color: white; /* Set text color to white */
         }
         .background-image {
             /* Use the feature graphic as a background */
@@ -32,24 +33,16 @@
         }
         .app-store-buttons {
             display: none; /* Initially hide the store buttons */
-            margin-top: 20px; /* Space between text and buttons */
         }
 		.app-store-buttons a {
-			text-decoration: none;
-			display: inline-block;
-			margin: 10px;
-			/* Set a common height for both buttons. */
-			height: 60px;
-			/* Set a maximum width to contain the width of the larger button. */
-			max-width: 200px; /* Adjust as necessary. */
-			overflow: hidden; /* Ensures no part of the image spills out if it's too wide. */
-			white-space: nowrap; /* Prevents wrapping of inline elements. */
-		}
-
-		.app-store-buttons a img {
-			height: 100%; /* Make the image fill the height of the anchor. */
-			width: auto; /* Adjust width automatically to maintain aspect ratio. */
-		}
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+        }
+        .app-store-buttons img {
+            height: 50px;
+            width: auto;
+        }
     </style>
 </head>
 <body>
