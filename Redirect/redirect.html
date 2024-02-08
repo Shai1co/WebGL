@@ -2,28 +2,47 @@
 <html>
 <head>
     <title>App Redirect</title>
+    <style>
+        /* Add CSS for consistent styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center; /* Center align the content */
+        }
+        .feature-graphic {
+            max-width: 100%; /* Ensure the image is not wider than the screen */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .app-store-buttons a {
+            text-decoration: none; /* Remove the underline */
+            display: inline-block; /* Align buttons side by side */
+            margin: 10px; /* Adds some space around the buttons */
+        }
+        .app-store-buttons img {
+            height: 50px; /* Fixed height for store buttons */
+            width: auto; /* Maintain aspect ratio of buttons */
+        }
+    </style>
 </head>
 <body>
-    <script type="text/javascript">
-        // Function to show the store buttons
-        function showStoreButtons() {
-            document.getElementById("store-buttons").style.display = "block";
-        }
+    <!-- Feature Graphic -->
+    <img src="https://shai1co.github.io/WebGL/Redirect/feature.png" alt="App Feature Graphic" class="feature-graphic">
 
-        window.onload = function() {
-            // Delay showing the store buttons to give time for the app to open
-            setTimeout(showStoreButtons, 2000); // Adjust as needed
-        }
-    </script>
-
-    <div id="store-buttons" style="display:none; text-align:center;">
+    <!-- Store Buttons -->
+    <div class="app-store-buttons">
         <p>If the app didn't open, please download or open it from the store:</p>
         <a href="https://play.google.com/store/apps/details?id=com.Boom.StoryTeller" target="_blank">
-            <img src="https://shai1co.github.io/WebGL/Redirect/android.png" alt="Get it on Google Play" style="height:60px;">
+            <img src="https://shai1co.github.io/WebGL/Redirect/android.png" alt="Get it on Google Play">
         </a>
         <a href="https://apps.apple.com/app/idYOUR.IOS.APP.ID" target="_blank">
-            <img src="https://shai1co.github.io/WebGL/Redirect/ios.png" alt="Download on the App Store" style="height:60px;">
+            <img src="https://shai1co.github.io/WebGL/Redirect/ios.png" alt="Download on the App Store">
         </a>
     </div>
+
+    <script type="text/javascript">
+        // JavaScript for delayed display of store buttons (if needed)
+        // Add your existing JavaScript here if you're using the delay functionality
+    </script>
 </body>
 </html>
