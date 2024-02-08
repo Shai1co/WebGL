@@ -18,6 +18,13 @@
             height: 100%;
             z-index: -1; /* Place it behind the content */
         }
+		.overlay { /* Semi-transparent overlay */
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Adjust the alpha for more or less transparency */
+            z-index: 0; /* Above the background, below the content */
+        }
         .content {
             text-align: center; /* Center the content */
             position: relative; /* Relative positioning for overlaying */
@@ -27,20 +34,27 @@
             display: none; /* Initially hide the store buttons */
             margin-top: 20px; /* Space between text and buttons */
         }
-        .app-store-buttons a {
-            text-decoration: none; /* Remove the underline from the links */
-            display: inline-block; /* Align buttons side by side */
-            margin: 10px; /* Adds some space around the buttons */
-        }
-        .app-store-buttons img {
-            height: 50px; /* Fixed height for store buttons */
-            width: auto; /* Maintain aspect ratio of buttons */
-        }
+		.app-store-buttons a {
+			text-decoration: none;
+			display: inline-block;
+			margin: 10px;
+			/* Set a common height for both buttons. */
+			height: 60px;
+			/* Set a maximum width to contain the width of the larger button. */
+			max-width: 200px; /* Adjust as necessary. */
+			overflow: hidden; /* Ensures no part of the image spills out if it's too wide. */
+			white-space: nowrap; /* Prevents wrapping of inline elements. */
+		}
+
+		.app-store-buttons a img {
+			height: 100%; /* Make the image fill the height of the anchor. */
+			width: auto; /* Adjust width automatically to maintain aspect ratio. */
+		}
     </style>
 </head>
 <body>
     <div class="background-image"></div> <!-- Background image layer -->
-
+	<div class="overlay"></div> <!-- Semi-transparent overlay -->
     <!-- Content overlay -->
     <div class="content">
         <h1>TalesCraft</h1>
